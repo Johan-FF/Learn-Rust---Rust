@@ -2,7 +2,7 @@ mod composite_data_types;
 mod control_structures;
 mod data_types;
 
-use composite_data_types::{enums_type, slices_type, structs_type};
+// use composite_data_types::{enums_type, slices_type, structs_type};
 
 // use control_structures::{for_structure, if_structure, loops, match_structure};
 
@@ -19,7 +19,34 @@ fn main() {
     // loops::show_while_result();
     // match_structure::show_match_result();
 
-    enums_type::show_enums_result();
-    structs_type::show_structs_result();
-    slices_type::show_slices_result();
+    // enums_type::show_enums_result();
+    // structs_type::show_structs_result();
+    // slices_type::show_slices_result();
+}
+
+fn scope() {
+    let mut original_num = 2;
+    let local_copy = original_num;
+    capture_scope(local_copy);
+    borrow_scope(&local_copy);
+    borrow_scope_to_modify(&mut original_num);
+    println!("Original scope {}", local_copy);
+    println!("Original scope {}", original_num);
+}
+
+fn capture_scope(num: i32) {
+    let mut copy = num;
+    println!("I have the copy {} and the original {}", copy, num);
+    copy = num * num * num;
+    println!("I have the copy {} and the original {}", copy, num);
+}
+
+fn borrow_scope(num: &i32) {
+    let square = *num * *num;
+    println!("I have the square {} and the original {}", square, *num);
+}
+
+fn borrow_scope_to_modify(num: &mut i32) {
+    *num -= 1;
+    println!("I have the value and I modified it {}", *num);
 }
