@@ -1,6 +1,9 @@
 mod composite_data_types;
 mod control_structures;
 mod data_types;
+mod structs;
+
+use structs::{closure, generics, poo_structs, trait_structs};
 
 // use composite_data_types::{enums_type, slices_type, structs_type};
 
@@ -22,6 +25,11 @@ fn main() {
     // enums_type::show_enums_result();
     // structs_type::show_structs_result();
     // slices_type::show_slices_result();
+
+    trait_structs::show_trait_result();
+    generics::show_generic_result();
+    closure::show_closure_ownership_result();
+    poo_structs::show_poo_result();
 }
 
 fn scope() {
@@ -31,7 +39,7 @@ fn scope() {
     borrow_scope(&local_copy);
     borrow_scope_to_modify(&mut original_num);
     println!("Original scope {}", local_copy);
-    println!("Original scope {}", original_num);
+    println!("Original scope of copy{}", original_num);
 }
 
 fn capture_scope(num: i32) {
