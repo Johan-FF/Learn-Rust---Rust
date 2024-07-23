@@ -12,6 +12,8 @@ use control_structures::{for_structure, if_structure, loops, match_structure};
 use data_types::non_primitives;
 use data_types::primitives;
 
+use personal_lib::errors::functions;
+
 fn main() {
     primitives::show_primitive_types();
     non_primitives::show_non_primitive_types();
@@ -33,6 +35,9 @@ fn main() {
     poo_structs::show_poo_result();
 
     scope();
+
+    functions::show_result_result();
+    functions::show_option_result();
 }
 
 fn scope() {
